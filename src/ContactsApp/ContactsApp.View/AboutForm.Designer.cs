@@ -55,9 +55,10 @@ namespace ContactsApp.View
             this.VersionLabel.AutoSize = true;
             this.VersionLabel.Location = new System.Drawing.Point(12, 41);
             this.VersionLabel.Name = "VersionLabel";
-            this.VersionLabel.Size = new System.Drawing.Size(43, 13);
+            this.VersionLabel.Size = new System.Drawing.Size(52, 13);
             this.VersionLabel.TabIndex = 1;
-            this.VersionLabel.Text = "v. 1.0.0";
+            this.VersionLabel.Text = "v. 1.2.2.3";
+            this.VersionLabel.Click += new System.EventHandler(this.VersionLabel_Click);
             // 
             // AuthorLabel
             // 
@@ -105,6 +106,7 @@ namespace ContactsApp.View
             this.EmaillinkLabel.TabIndex = 6;
             this.EmaillinkLabel.TabStop = true;
             this.EmaillinkLabel.Text = "fedyaev-2001@mail.ru";
+            this.EmaillinkLabel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.EmaillinkLabel_LinkClicked);
             // 
             // GitHubLinkLabel
             // 

@@ -20,6 +20,16 @@ namespace ContactsApp.View
 
         private void ContactsAppLabel_Click(object sender, EventArgs e)
         {
+            System.Diagnostics.Process.Start("https://github.com/NikolayFedyaev");
+        }
+
+        private void EmaillinkLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://mail.ru");
+        }
+
+        private void VersionLabel_Click(object sender, EventArgs e)
+        {
 
         }
     }
