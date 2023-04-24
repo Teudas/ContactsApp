@@ -16,8 +16,8 @@ namespace ContactsApp.View
         /// <summary>
         /// Создание экземпляра контакта.
         /// </summary>
-        public Contact _contact = new Contact(" ", " ", new PhoneNumber(7),
-                new DateTime(2001, 05, 25), " ", " ");
+        public Contact _contact = new Contact("Name", "Surname", new PhoneNumber(7),
+                new DateTime(2001, 05, 25), "Evail", "VkId");
 
         // <summary>
         /// Цвет поля при корректном вводе.
@@ -113,7 +113,7 @@ namespace ContactsApp.View
             SurnameTextBox.Text = _contact.Surname;
             NameTextBox.Text = _contact.Name;
             BirthdayTimePicker.Value = _contact.Birthday;
-            PhoneTextBox.Text = "78005553537";
+            PhoneTextBox.Text = _contact.Number.Number.ToString();
             EmailTextBox.Text = _contact.Email;
             VkTextBox.Text = _contact.VkId;
         }
