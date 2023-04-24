@@ -6,7 +6,7 @@ using System.Windows.Forms;
 
 namespace ContactsApp.View
 {
-    static class Program
+    internal static class Program
     {
         /// <summary>
         /// Главная точка входа для приложения.
@@ -16,7 +16,7 @@ namespace ContactsApp.View
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MainForm());
+            Application.Run(new ContactForm());
         }
     }
 }

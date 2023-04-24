@@ -8,6 +8,6 @@ namespace ContactsApp.Model
 {
     public partial class ProjectManager
     {
-
+      
     }
 }
