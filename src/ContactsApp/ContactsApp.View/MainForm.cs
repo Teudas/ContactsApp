@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+using ContactsApp.Model;
+
 namespace ContactsApp.View
 {
     public partial class MainForm : Form
@@ -35,8 +37,7 @@ namespace ContactsApp.View
         private void AddContacts_Click(object sender, EventArgs e)
         {
             AddContactsForm addc = new AddContactsForm();
-            addc.Show();
-            Hide();
+            addc.ShowDialog();
         }
 
         private void DeleteContacts_Click(object sender, EventArgs e)
@@ -47,8 +48,7 @@ namespace ContactsApp.View
         private void EditButton_Click(object sender, EventArgs e)
         {
             AddContactsForm addc = new AddContactsForm();
-            addc.Show();
-            Hide();
+            addc.ShowDialog();
         }
 
         private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
@@ -59,15 +59,14 @@ namespace ContactsApp.View
         private void addContactsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             AddContactsForm addc = new AddContactsForm();
-            addc.Show();
-            Hide();
+            addc.ShowDialog();
+    
         }
 
         private void editContactsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             AddContactsForm addc = new AddContactsForm();
-            addc.Show();
-            Hide();
+            addc.ShowDialog();
         }
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
@@ -77,8 +76,18 @@ namespace ContactsApp.View
 
         private void helpToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            
+        }
+
+        private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
             AboutForm aboutf = new AboutForm();
-            aboutf.Show();
+            aboutf.ShowDialog();
+        }
+
+        private void PhoneTextBox_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

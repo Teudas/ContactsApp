@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ContactsApp.Model;
 
 namespace ContactsApp.View
 {
@@ -15,6 +16,11 @@ namespace ContactsApp.View
         public AboutForm()
         {
             InitializeComponent();
+        }
+
+        private void ContactsAppLabel_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

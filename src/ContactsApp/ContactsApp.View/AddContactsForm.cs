@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ContactsApp.Model;
 
 namespace ContactsApp.View
 {
@@ -65,6 +66,11 @@ namespace ContactsApp.View
         }
 
         private void BurthdayLabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void PhoneTextBox_TextChanged(object sender, EventArgs e)
         {
 
         }
