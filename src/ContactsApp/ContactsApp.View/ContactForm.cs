@@ -17,7 +17,7 @@ namespace ContactsApp.View
         /// Создание экземпляра контакта.
         /// </summary>
         public Contact _contact = new Contact(" ", " ", new PhoneNumber(7),
-                new DateTime(2001, 06, 07), " ", " ");
+                new DateTime(2001, 05, 25), " ", " ");
 
         // <summary>
         /// Цвет поля при корректном вводе.
@@ -66,32 +66,32 @@ namespace ContactsApp.View
 
             if (_surnameError != string.Empty)
             {
-                errorText = errorText + "|| Incorrect surname ||\n";
+                errorText = errorText + "|| Неверная фамилия ||\n";
             }
 
             if (_nameError != string.Empty)
             {
-                errorText = errorText + "|| Incorrect name ||\n";
+                errorText = errorText + "|| Неверное имя ||\n";
             }
 
             if (_phoneNumberError != string.Empty)
             {
-                errorText = errorText + "|| Incorrect number ||\n";
+                errorText = errorText + "|| Неверный номер ||\n";
             }
 
             if (_birthdayError != string.Empty)
             {
-                errorText = errorText + "|| Incorrect birthday ||\n";
+                errorText = errorText + "|| Неверное день рождение ||\n";
             }
 
             if (_emailError != string.Empty)
             {
-                errorText = errorText + "|| Incorrect mail ||\n";
+                errorText = errorText + "|| Неверная почта ||\n";
             }
 
             if (_vkIdError != string.Empty)
             {
-                errorText = errorText + "|| Incorrect vkId ||\n";
+                errorText = errorText + "|| Неверный айди ||\n";
             }
             if (errorText == string.Empty)
             {
@@ -306,6 +306,20 @@ namespace ContactsApp.View
 
         private void ContactForm_Load(object sender, EventArgs e)
         {
+
+        }
+
+        /// <summary>
+        /// Функция обновления данных контакта. 
+        /// </summary>
+        public void UpdateContact()
+        {
+            _contact.Surname = SurnameTextBox.Text;
+            _contact.Name = NameTextBox.Text;
+            _contact.Birthday = BirthdayTimePicker.Value;
+            _contact.Number.Number = Convert.ToInt64(PhoneTextBox.Text);
+            _contact.Email = EmailTextBox.Text;
+            _contact.VkId = VkTextBox.Text;
 
         }
     }

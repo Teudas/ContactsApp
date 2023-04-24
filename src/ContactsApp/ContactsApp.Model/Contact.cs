@@ -34,7 +34,7 @@ namespace ContactsApp.Model
         /// <summary>
         /// Ограничение длины полей: фамилия, имя, мэйл. 
         /// </summary>
-        public const int _letterLengthLimit = 30;
+        public const int _letterLengthLimit = 50;
 
         /// <summary>
         /// Айди Вконтакте контакта.
