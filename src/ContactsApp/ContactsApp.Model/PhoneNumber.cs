@@ -23,20 +23,26 @@ namespace ContactsApp.Model
 
         public long Number
         {
-            get => _number;
+            get
+            {
+                return this._number;
+            }
             set
             {
-                Console.WriteLine(value);
-                if (value.ToString().Length > _MAX_LENGTH)
+                if (value.ToString().Length > _MAX_LENGTH || !value.ToString().StartsWith("7"))
                 {
-                    throw new ArgumentException("The max length of a phone number is 11");
+                    throw new ArgumentException("Длина номера должна быть меньше 11 символов и начинаться с 7");
                 }
-                _number = value;
+                this._number = value;
             }
         }
-        public PhoneNumber(long value)
+        /// <summary>
+        /// Создание экземпляра телефонного номера.
+        /// </summary>
+        /// <param name="number">Номер телефона контакта.</param>
+        public PhoneNumber(long number)
         {
-            Number = value;
+            this._number = number;
         }
     }
 }

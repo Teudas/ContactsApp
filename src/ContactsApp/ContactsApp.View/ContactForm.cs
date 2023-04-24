@@ -13,37 +13,8 @@ namespace ContactsApp.View
 {
     public partial class ContactForm : Form
     {
-        /// <summary>
-        /// Создание экземпляра контакта.
-        /// </summary>
-        public Contact _contact = new Contact("Name", "Surname", new PhoneNumber(7),
-                new DateTime(2001, 05, 25), "Email", "VkId");
-
-        // <summary>
-        /// Цвет поля при корректном вводе.
-        /// </summary>
-        private Color correctColor = Color.White;
-
-        /// <summary>
-        /// Цвет поля при некорректном вводе.
-        /// </summary>
-        private Color incorrectColor = Color.LightPink;
-
-
-        /// <summary>
-        /// Сеттер и геттер контакта.
-        /// </summary>
-        public Contact Contact
-        {
-            get
-            {
-                return _contact;
-            }
-            set
-            {
-                _contact = value;
-            }
-        }
+        private Contact _contact = new Contact("Nikolay", "Fedyaev", new PhoneNumber(79618862557),
+                new DateTime(2001, 05, 25), "fedyaev-2001@mail.ru", "vkid");
 
         /// <summary>
         /// Тексты ошибок.
@@ -55,65 +26,65 @@ namespace ContactsApp.View
         private string _emailError;
         private string _vkIdError;
 
-
         /// <summary>
         /// Проверка корректности ввода всех полей.
         /// </summary>
         /// <returns></returns>
         private bool CheckFormOnErrors()
         {
-            string errorText = string.Empty;
-
             if (_surnameError != string.Empty)
             {
-                errorText = errorText + "|| Неверная фамилия ||\n";
+                MessageBox.Show(_surnameError);
+                return false;
             }
 
             if (_nameError != string.Empty)
             {
-                errorText = errorText + "|| Неверное имя ||\n";
+                MessageBox.Show(_nameError);
+                return false;
             }
 
             if (_phoneNumberError != string.Empty)
             {
-                errorText = errorText + "|| Неверный номер ||\n";
+                MessageBox.Show(_phoneNumberError);
+                return false;
             }
 
             if (_birthdayError != string.Empty)
             {
-                errorText = errorText + "|| Неверное день рождение ||\n";
+                MessageBox.Show(_birthdayError);
+                return false;
             }
 
             if (_emailError != string.Empty)
             {
-                errorText = errorText + "|| Неверная почта ||\n";
+                MessageBox.Show(_emailError);
+                return false;
             }
 
             if (_vkIdError != string.Empty)
             {
-                errorText = errorText + "|| Неверный айди ||\n";
+                MessageBox.Show(_vkIdError);
+                return false;
             }
-            if (errorText == string.Empty)
+            if (_surnameError == string.Empty)
             {
                 return true;
             }
-            else
-            {
-                MessageBox.Show(errorText);
-                return false;
-            }
+
+            return true;
         }
 
 
         /// <summary>
         /// Обновление данных формы.
         /// </summary>
-        public void UpdateForm()
+        private void UpdateForm()
         {
             SurnameTextBox.Text = _contact.Surname;
             NameTextBox.Text = _contact.Name;
             BirthdayTimePicker.Value = _contact.Birthday;
-            PhoneTextBox.Text = _contact.Number.Number.ToString();
+            PhoneTextBox.Text = "78005553537";
             EmailTextBox.Text = _contact.Email;
             VkTextBox.Text = _contact.VkId;
         }
@@ -215,8 +186,6 @@ namespace ContactsApp.View
         {
             if (CheckFormOnErrors() == true)
             {
-                DialogResult = DialogResult.OK;
-                UpdateForm();
                 Close();
             }
         }
@@ -302,25 +271,6 @@ namespace ContactsApp.View
                 EmailTextBox.BackColor = Color.LightPink;
                 _emailError = exception.Message;
             }
-        }
-
-        private void ContactForm_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        /// <summary>
-        /// Функция обновления данных контакта. 
-        /// </summary>
-        public void UpdateContact()
-        {
-            _contact.Surname = SurnameTextBox.Text;
-            _contact.Name = NameTextBox.Text;
-            _contact.Birthday = BirthdayTimePicker.Value;
-            _contact.Number.Number = Convert.ToInt64(PhoneTextBox.Text);
-            _contact.Email = EmailTextBox.Text;
-            _contact.VkId = VkTextBox.Text;
-
         }
     }
 }

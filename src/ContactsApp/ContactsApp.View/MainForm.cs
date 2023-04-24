@@ -42,13 +42,13 @@ namespace ContactsApp.View
         {
             var randomNames = new List<string>
             {
-                "Даниил","Максим","Кирилл","Алехандро"
-                ,"Фёдр","Пётр"
+                "Евгений","Вячеслав","Сизый","Петька"
+                ,"Никитка","Алешка", "Виталий"
             };
             var randomSurnames = new List<string>
             {
-                "Абрамов","Бериллов","Фёдоров",
-                "Семёнов","Константинов"
+                "Чураков","Хохломов","Сидоров",
+                "Майков","Федяев", "Мусэрский"
             };
             //var randomPhoneNumbers = new List<string>
             //{
@@ -56,7 +56,7 @@ namespace ContactsApp.View
             //};
             var randomEmails = new List<string>
             {
-                "aaabramov@mail.ru",
+                "evgexacraft@mail.ru",
                 "petrketr@gmail.com",
                 "berillii@inbox.ru",
                 "ker124@mail.ru",
@@ -74,7 +74,7 @@ namespace ContactsApp.View
                 randomSurnames[random.Next(randomSurnames.Count)],
                 new PhoneNumber(79534599771),
                 //randomPhoneNumbers[random.Next(randomPhoneNumbers.Count)],
-                new DateTime(2001, 06, 07),
+                new DateTime(2001, 05, 25),
                 randomEmails[random.Next(randomEmails.Count)],
                 randomVkId[random.Next(randomVkId.Count)]);
 
@@ -165,7 +165,7 @@ namespace ContactsApp.View
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
+            UpdateSelectedContact(ContactsListBox.SelectedIndex);
         }
 
 
@@ -192,7 +192,7 @@ namespace ContactsApp.View
         /// </summary>
         private void EditButton_Click(object sender, EventArgs e)
         {
-            EditForm newForm = new EditForm();
+            ContactForm newForm = new ContactForm();
             newForm.Show();
         }
 
@@ -216,7 +216,7 @@ namespace ContactsApp.View
         /// </summary>
         private void editContactsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            EditForm newForm = new EditForm();
+            ContactForm newForm = new ContactForm();
             newForm.Show();
         }
 
