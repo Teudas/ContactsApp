@@ -35,7 +35,7 @@ namespace ContactsApp.View
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.addContactsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.AddContactsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editContactsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.removeContactsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -49,7 +49,7 @@ namespace ContactsApp.View
             this.VcTextBox = new System.Windows.Forms.TextBox();
             this.EmailTextBox = new System.Windows.Forms.TextBox();
             this.PhoneTextBox = new System.Windows.Forms.TextBox();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.BirthdaydateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.label1 = new System.Windows.Forms.Label();
             this.EmailLabel = new System.Windows.Forms.Label();
             this.PhoneLabel = new System.Windows.Forms.Label();
@@ -88,7 +88,7 @@ namespace ContactsApp.View
             this.splitContainer1.Panel2.Controls.Add(this.VcTextBox);
             this.splitContainer1.Panel2.Controls.Add(this.EmailTextBox);
             this.splitContainer1.Panel2.Controls.Add(this.PhoneTextBox);
-            this.splitContainer1.Panel2.Controls.Add(this.dateTimePicker1);
+            this.splitContainer1.Panel2.Controls.Add(this.BirthdaydateTimePicker);
             this.splitContainer1.Panel2.Controls.Add(this.label1);
             this.splitContainer1.Panel2.Controls.Add(this.EmailLabel);
             this.splitContainer1.Panel2.Controls.Add(this.PhoneLabel);
@@ -134,19 +134,19 @@ namespace ContactsApp.View
             // editToolStripMenuItem
             // 
             this.editToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.addContactsToolStripMenuItem,
+            this.AddContactsToolStripMenuItem,
             this.editContactsToolStripMenuItem,
             this.removeContactsToolStripMenuItem});
             this.editToolStripMenuItem.Name = "editToolStripMenuItem";
             this.editToolStripMenuItem.Size = new System.Drawing.Size(39, 20);
             this.editToolStripMenuItem.Text = "Edit";
             // 
-            // addContactsToolStripMenuItem
+            // AddContactsToolStripMenuItem
             // 
-            this.addContactsToolStripMenuItem.Name = "addContactsToolStripMenuItem";
-            this.addContactsToolStripMenuItem.Size = new System.Drawing.Size(167, 22);
-            this.addContactsToolStripMenuItem.Text = "Add Contacts";
-            this.addContactsToolStripMenuItem.Click += new System.EventHandler(this.addContactsToolStripMenuItem_Click);
+            this.AddContactsToolStripMenuItem.Name = "AddContactsToolStripMenuItem";
+            this.AddContactsToolStripMenuItem.Size = new System.Drawing.Size(167, 22);
+            this.AddContactsToolStripMenuItem.Text = "Add Contacts";
+            this.AddContactsToolStripMenuItem.Click += new System.EventHandler(this.addContactsToolStripMenuItem_Click);
             // 
             // editContactsToolStripMenuItem
             // 
@@ -160,6 +160,7 @@ namespace ContactsApp.View
             this.removeContactsToolStripMenuItem.Name = "removeContactsToolStripMenuItem";
             this.removeContactsToolStripMenuItem.Size = new System.Drawing.Size(167, 22);
             this.removeContactsToolStripMenuItem.Text = "Remove Contacts";
+            this.removeContactsToolStripMenuItem.Click += new System.EventHandler(this.removeContactsToolStripMenuItem_Click);
             // 
             // helpToolStripMenuItem
             // 
@@ -282,15 +283,16 @@ namespace ContactsApp.View
             this.PhoneTextBox.TabIndex = 17;
             this.PhoneTextBox.TextChanged += new System.EventHandler(this.PhoneTextBox_TextChanged);
             // 
-            // dateTimePicker1
+            // BirthdaydateTimePicker
             // 
-            this.dateTimePicker1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.BirthdaydateTimePicker.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dateTimePicker1.Location = new System.Drawing.Point(77, 79);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(369, 20);
-            this.dateTimePicker1.TabIndex = 16;
+            this.BirthdaydateTimePicker.Location = new System.Drawing.Point(77, 79);
+            this.BirthdaydateTimePicker.Name = "BirthdaydateTimePicker";
+            this.BirthdaydateTimePicker.Size = new System.Drawing.Size(369, 20);
+            this.BirthdaydateTimePicker.TabIndex = 16;
+            this.BirthdaydateTimePicker.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
             // 
             // label1
             // 
@@ -401,7 +403,7 @@ namespace ContactsApp.View
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem editToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem addContactsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem AddContactsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem editContactsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem removeContactsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
@@ -416,7 +418,7 @@ namespace ContactsApp.View
         private System.Windows.Forms.Label PhoneLabel;
         private System.Windows.Forms.Label EmailLabel;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker BirthdaydateTimePicker;
         private System.Windows.Forms.TextBox PhoneTextBox;
         private System.Windows.Forms.TextBox EmailTextBox;
         private System.Windows.Forms.TextBox VcTextBox;

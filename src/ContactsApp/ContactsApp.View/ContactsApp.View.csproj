@@ -70,11 +70,11 @@
     <Compile Include="AboutForm.Designer.cs">
       <DependentUpon>AboutForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="AddContactsForm.cs">
+    <Compile Include="EditForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AddContactsForm.Designer.cs">
-      <DependentUpon>AddContactsForm.cs</DependentUpon>
+    <Compile Include="EditForm.Designer.cs">
+      <DependentUpon>EditForm.cs</DependentUpon>
     </Compile>
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
@@ -87,8 +87,8 @@
     <EmbeddedResource Include="AboutForm.resx">
       <DependentUpon>AboutForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AddContactsForm.resx">
-      <DependentUpon>AddContactsForm.cs</DependentUpon>
+    <EmbeddedResource Include="EditForm.resx">
+      <DependentUpon>EditForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
