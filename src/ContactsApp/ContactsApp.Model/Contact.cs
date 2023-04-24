@@ -9,132 +9,168 @@ namespace ContactsApp.Model
     /// <summary>
     /// Контакт
     /// </summary>
-    public class Contact
+    public class Contact : ICloneable
     {
         /// <summary>
-        /// Максимальная длина строк: _name, _surname, _mail
-        /// </summary>
-        private const int _MAX_LENGTH = 50;
-
-        /// <summary>
-        /// Имя контакта
-        /// </summary>
-        private string _name;
-
-        /// <summary>
-        /// Фамилия контакта
+        /// Фамилия контакта.
         /// </summary>
         private string _surname;
 
         /// <summary>
-        /// Номер телефона
+        /// Имя контакта.
         /// </summary>
-        private PhoneNumber _phoneNumber;
-
+        private string _name;
 
         /// <summary>
-        /// Дата рождения
+        /// Дата рождения контакта.
         /// </summary>
-        private DateTime _dateOfBirth;
+        private DateTime _birthday;
 
         /// <summary>
-        /// Почта
+        /// Почтовый адрес контакта. 
         /// </summary>
-        private string _mail;
+        private string _email;
 
         /// <summary>
-        /// Вк id
+        /// Ограничение длины полей: фамилия, имя, мэйл. 
+        /// </summary>
+        public const int _letterLengthLimit = 50;
+
+        /// <summary>
+        /// Айди Вконтакте контакта.
         /// </summary>
         private string _vkId;
 
         /// <summary>
-        /// Возвращает строку, где первый символ возведен в верхний регистр
+        /// Ограничение длины поля вк айди.
         /// </summary>
-        /// <param name="str"></param>
-        /// <returns></returns>
-        private static string FirstLetterToUpper(string str)
+        public const int _vkIdLengthLimit = 15;
+
+        public PhoneNumber Number { get; set; }
+
+        /// <summary>
+        /// Возврат или задание значения поля Фамилия.
+        /// </summary>
+        public string Surname
         {
-            return Char.ToUpper(str[0]) + str.Substring(1);
+            get
+            {
+                return _surname;
+            }
+            set
+            {
+                if (value.Length > _letterLengthLimit || value.Length == 0)
+                {
+                    throw new ArgumentException();
+                }
+                _surname = value;
+            }
         }
 
         /// <summary>
-        /// Возвращает строку, если она не превышает максимально допустимую длину, иначе - исключение
+        /// Возврат или задание значения поля Имя.
         /// </summary>
-        /// <param name="str"></param>
-        /// <param name="maxLength"></param>
-        /// <returns></returns>
-        /// <exception cref="ArgumentException"></exception>
-        private static string CheckMaxLengthString(string str, int maxLength)
-        {
-            if (str.Length > maxLength)
-            {
-                throw new ArgumentException($"The maximum number of characters is {maxLength}");
-            }
-            return str;
-        }
-
         public string Name
         {
-            get => _name;
-            set
+            get
             {
-                _name = FirstLetterToUpper(CheckMaxLengthString(value, _MAX_LENGTH));
+                return _name;
             }
-        }
-
-        public string Surname
-        {
-            get => _surname;
             set
             {
-                _surname = FirstLetterToUpper(CheckMaxLengthString(value, _MAX_LENGTH));
-            }
-        }
-
-
-        public PhoneNumber PhoneNumber { get; set; }
-
-        public DateTime DateOfBirth
-        {
-            get => _dateOfBirth;
-            set
-            {
-                if (value > DateTime.Now || value.Year < 1900)
+                if (value.Length > _letterLengthLimit || value.Length == 0)
                 {
-                    throw new ArgumentException("The date cannot be greater than today and less than 1900");
+                    throw new ArgumentException();
                 }
-                _dateOfBirth = value;
+                _name = value;
             }
         }
 
-        public string Mail
+        /// <summary>
+        /// Возврат или задание значения поля Дата рождения.
+        /// </summary>
+        public DateTime Birthday
         {
-            get => _mail;
+            get
+            {
+                return _birthday;
+            }
             set
             {
-                _mail = CheckMaxLengthString(value, _MAX_LENGTH);
+                if (value.Year < 1900 || value > DateTime.Now)
+                {
+                    throw new ArgumentException();
+                }
+                _birthday = value;
             }
         }
 
+        /// <summary>
+        /// Возврат или задание значения поля Мэйл.
+        /// </summary>
+        public string Email
+        {
+            get
+            {
+                return _email;
+            }
+            set
+            {
+                if (value.Length > _letterLengthLimit || value.Length == 0)
+                {
+                    throw new ArgumentException();
+                }
+                _email = value;
+            }
+        }
+
+        /// <summary>
+        /// Возврат или задание значения поля Вк айди.
+        /// </summary>
         public string VkId
         {
-            get => _vkId;
+            get
+            {
+                return _vkId;
+            }
             set
             {
-                _vkId = CheckMaxLengthString(value, 15); ;
+                if (value.Length > _vkIdLengthLimit || value.Length == 0)
+                {
+                    throw new ArgumentException();
+                }
+                _vkId = value;
             }
         }
 
-        public Contact(string name, string surname, PhoneNumber phoneNumber, DateTime dateOfBirth, string mail, string vkId)
+        /// <summary>
+        /// Конструктор контактов.
+        /// </summary>
+        /// <param name="name">Имя контакта.</param>
+        /// <param name="surname">Фамилия контакта.</param>
+        /// <param name="number">Номер телефона контакта.</param>
+        /// <param name="birthday">Дата рождения контакта.</param>
+        /// <param name="email">Мэйл контакта.</param>
+        /// <param name="vkId">VK id контакта.</param>
+        public Contact(string name, string surname, PhoneNumber number,
+            DateTime birthday, string email, string vkId)
         {
-            Name = name;
-            Surname = surname;
-            PhoneNumber = phoneNumber;
-            DateOfBirth = dateOfBirth;
-            Mail = mail;
-            VkId = vkId;
+            this.Name = name;
+            this.Surname = surname;
+            this.Number = number;
+            this.Birthday = birthday;
+            this.Email = email;
+            this.VkId = vkId;
         }
-        public object Clone() =>
-            new Contact(Name, Surname, new PhoneNumber(PhoneNumber.Number), DateOfBirth, Mail, VkId);
+
+        /// <summary>
+        /// Функция для создания копии объектов.
+        /// </summary>
+        object ICloneable.Clone()
+        {
+            return new Contact(this.Name, this.Surname,
+                new PhoneNumber(this.Number.Number), this.Birthday,
+                this.Email, this.VkId);
+        }
     }
 }
