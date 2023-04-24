@@ -27,10 +27,12 @@ namespace ContactsApp.View
         public MainForm()
         {
             _project = new Project();
+            _project = ProjectManager.LoadFromFile();
             InitializeComponent();
             _currentContacts = new List<Contact>(_project.SortBySurname());
             UpdateListBox();
         }
+
         /// <summary>
         /// Обновление ListBox.
         /// </summary>
@@ -68,6 +70,10 @@ namespace ContactsApp.View
         /// Удаление контакта из ListBox.
         /// </summary>
         /// <param name="index">Индекс контакта в ListBox.</param>
+        /// <summary>
+        /// Удаление контакта из ListBox.
+        /// </summary>
+        /// <param name="index">Индекс контакта в ListBox.</param>
         private void RemoveContact(int index)
         {
             if (index == -1)
@@ -85,6 +91,7 @@ namespace ContactsApp.View
                 _currentContacts.RemoveAt(index);
                 _project.Contacts.RemoveAt(contactIndex);
                 UpdateListBox();
+                ProjectManager.SaveToFile(_project);
             }
         }
 
@@ -137,6 +144,7 @@ namespace ContactsApp.View
                 Contact newContact = contactForm.Contact;
                 _currentContacts.Add(newContact);
                 _project.Contacts.Add(contactForm._contact);
+                ProjectManager.SaveToFile(_project);
             }
         }
 
@@ -152,10 +160,9 @@ namespace ContactsApp.View
                 MessageBox.Show("Choose contact");
                 return;
             }
-            Contact editContact = _project.Contacts[index];
+            Contact editContact = _currentContacts[index];
             ContactForm contactForm = new ContactForm();
 
-            contactForm.Contact = (Contact)editContact.Clone();
             contactForm.UpdateForm();
             contactForm.ShowDialog();
             if (contactForm.DialogResult == DialogResult.OK)
@@ -169,6 +176,7 @@ namespace ContactsApp.View
                 UpdateListBox();
                 UpdateSelectedContact(index);
                 ContactsListBox.SelectedIndex = index;
+                ProjectManager.SaveToFile(_project);
             }
         }
 
