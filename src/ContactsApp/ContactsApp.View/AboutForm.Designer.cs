@@ -36,6 +36,8 @@ namespace ContactsApp.View
             this.CopywritingLabel = new System.Windows.Forms.Label();
             this.EmailLabel = new System.Windows.Forms.Label();
             this.GitHubLabel = new System.Windows.Forms.Label();
+            this.EmaillinkLabel = new System.Windows.Forms.LinkLabel();
+            this.GitHubLinkLabel = new System.Windows.Forms.LinkLabel();
             this.SuspendLayout();
             // 
             // ContactsAppLabel
@@ -46,6 +48,7 @@ namespace ContactsApp.View
             this.ContactsAppLabel.Size = new System.Drawing.Size(68, 13);
             this.ContactsAppLabel.TabIndex = 0;
             this.ContactsAppLabel.Text = "ContactsApp";
+            this.ContactsAppLabel.Click += new System.EventHandler(this.ContactsAppLabel_Click);
             // 
             // VersionLabel
             // 
@@ -80,24 +83,46 @@ namespace ContactsApp.View
             this.EmailLabel.AutoSize = true;
             this.EmailLabel.Location = new System.Drawing.Point(12, 113);
             this.EmailLabel.Name = "EmailLabel";
-            this.EmailLabel.Size = new System.Drawing.Size(207, 13);
+            this.EmailLabel.Size = new System.Drawing.Size(98, 13);
             this.EmailLabel.TabIndex = 4;
-            this.EmailLabel.Text = "E-mail for feerback: fedyaev-2001@mail.ru";
+            this.EmailLabel.Text = "E-mail for feerback:";
             // 
             // GitHubLabel
             // 
             this.GitHubLabel.AutoSize = true;
             this.GitHubLabel.Location = new System.Drawing.Point(12, 135);
             this.GitHubLabel.Name = "GitHubLabel";
-            this.GitHubLabel.Size = new System.Drawing.Size(188, 13);
+            this.GitHubLabel.Size = new System.Drawing.Size(46, 13);
             this.GitHubLabel.TabIndex = 5;
-            this.GitHubLabel.Text = "GitHub: NikolayFedyaev/ContactsApp";
+            this.GitHubLabel.Text = "GitHub: ";
+            // 
+            // EmaillinkLabel
+            // 
+            this.EmaillinkLabel.AutoSize = true;
+            this.EmaillinkLabel.Location = new System.Drawing.Point(116, 113);
+            this.EmaillinkLabel.Name = "EmaillinkLabel";
+            this.EmaillinkLabel.Size = new System.Drawing.Size(113, 13);
+            this.EmaillinkLabel.TabIndex = 6;
+            this.EmaillinkLabel.TabStop = true;
+            this.EmaillinkLabel.Text = "fedyaev-2001@mail.ru";
+            // 
+            // GitHubLinkLabel
+            // 
+            this.GitHubLinkLabel.AutoSize = true;
+            this.GitHubLinkLabel.Location = new System.Drawing.Point(64, 135);
+            this.GitHubLinkLabel.Name = "GitHubLinkLabel";
+            this.GitHubLinkLabel.Size = new System.Drawing.Size(149, 13);
+            this.GitHubLinkLabel.TabIndex = 7;
+            this.GitHubLinkLabel.TabStop = true;
+            this.GitHubLinkLabel.Text = "NikolayFedyaev/ContactsApp";
             // 
             // AboutForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(411, 288);
+            this.Controls.Add(this.GitHubLinkLabel);
+            this.Controls.Add(this.EmaillinkLabel);
             this.Controls.Add(this.GitHubLabel);
             this.Controls.Add(this.EmailLabel);
             this.Controls.Add(this.CopywritingLabel);
@@ -120,5 +145,7 @@ namespace ContactsApp.View
         private System.Windows.Forms.Label CopywritingLabel;
         private System.Windows.Forms.Label EmailLabel;
         private System.Windows.Forms.Label GitHubLabel;
+        private System.Windows.Forms.LinkLabel EmaillinkLabel;
+        private System.Windows.Forms.LinkLabel GitHubLinkLabel;
     }
 }

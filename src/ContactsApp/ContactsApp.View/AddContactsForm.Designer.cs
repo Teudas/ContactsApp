@@ -115,6 +115,7 @@ namespace ContactsApp.View
             this.PhoneTextBox.Name = "PhoneTextBox";
             this.PhoneTextBox.Size = new System.Drawing.Size(369, 20);
             this.PhoneTextBox.TabIndex = 6;
+            this.PhoneTextBox.TextChanged += new System.EventHandler(this.PhoneTextBox_TextChanged);
             // 
             // SurnameTextBox
             // 
